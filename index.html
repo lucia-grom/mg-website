@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Znalecké posudky nehnuteľností a stavieb | Ing. Miroslav Gromada, súdny znalec</title>
+<meta name="description" content="Súdny znalec pre pozemné stavby a odhad hodnoty nehnuteľností. Znalecké posudky pre hypotéky, kúpu a predaj, dedičské konania. Poprad a celé Slovensko.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M8 30 L32 15 L56 30' stroke='%231F3F5E' stroke-width='6' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ctext x='32' y='54' text-anchor='middle' font-family='Georgia,serif' font-size='26' font-weight='600' fill='%231F3F5E'%3EMG%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --dark:#12202B;          /* tmavé pozadie sekcií — ako Accura */
+  --dark-2:#0D1820;
+  --ink:#1B2B38;           /* text na svetlom */
+  --muted:#5C6E7C;
+  --muted-dark:#9DB1BF;    /* tlmený text na tmavom */
+  --accent:#4E93B4;        /* serifové čísla */
+  --accent-light:#A9D9EF;  /* kurzívový akcent na tmavom */
+  --accent-deep:#2E6E8E;   /* kurzívový akcent na svetlom */
+  --bg:#FFFFFF;
+  --bg-soft:#F3F6F8;
+  --card:#FFFFFF;
+  --line:#E2E8EC;
+  --r:16px;
+  --serif:'Fraunces',Georgia,serif;
+  --sans:'Inter',system-ui,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{font-family:var(--sans);color:var(--ink);background:var(--bg);line-height:1.65;font-size:16.5px}
+img{max-width:100%;display:block}
+a{color:var(--accent-deep)}
+.wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+.section{padding:96px 0}
+.section.soft{background:var(--bg-soft)}
+.section.dark{background:var(--dark);color:#fff}
+
+/* pill badge — ako "We Are In Numbers" */
+.pill{display:inline-flex;align-items:center;gap:8px;font-size:13.5px;font-weight:500;letter-spacing:.02em;padding:8px 16px;border-radius:99px;background:#EAF0F4;color:var(--ink)}
+.pill::before{content:"✦";font-size:11px;color:var(--accent)}
+.dark .pill{background:rgba(255,255,255,.08);color:#fff}
+.dark .pill::before{color:var(--accent-light)}
+.center{text-align:center}
+.center .pill{margin:0 auto}
+
+/* nadpisy — serif, kurzívový akcent */
+h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.15;letter-spacing:-.01em}
+h1{font-size:clamp(38px,6vw,64px)}
+h2{font-size:clamp(30px,4.5vw,46px);margin:20px 0 18px}
+h1 em,h2 em{font-style:normal;font-weight:500;color:var(--accent-deep)}
+.dark h1 em,.dark h2 em{font-style:normal;color:var(--accent-light)}
+.lead{color:var(--muted);max-width:640px;font-size:18px}
+.center .lead{margin:0 auto}
+.dark .lead{color:var(--muted-dark)}
+
+/* tlačidlá — pilulky ako v Accure */
+.btn{display:inline-block;font-weight:600;font-size:16px;text-decoration:none;padding:15px 30px;border-radius:99px;transition:background .18s,color .18s,border-color .18s}
+.btn-solid{background:var(--dark);color:#fff;border:1px solid var(--dark)}
+.btn-solid:hover{background:var(--accent-deep);border-color:var(--accent-deep)}
+.btn-ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.btn-ghost:hover{border-color:var(--accent-deep);color:var(--accent-deep)}
+.dark .btn-solid{background:#fff;color:var(--dark);border-color:#fff}
+.dark .btn-solid:hover{background:var(--accent-light)}
+.btn:focus-visible,a:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+
+/* header */
+header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:74px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand svg{width:42px;height:42px}
+.brand-name{font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:.24em;color:var(--muted);text-transform:uppercase}
+.nav-links{display:flex;gap:26px;align-items:center;list-style:none}
+.nav-links a{text-decoration:none;font-size:15px;font-weight:500;color:var(--ink)}
+.nav-links a:hover{color:var(--accent-deep)}
+.nav-phone{font-weight:600;color:#fff!important;background:var(--dark);padding:10px 20px;border-radius:99px}
+.nav-phone:hover{background:var(--accent-deep)}
+.nav-toggle{display:none;background:none;border:1px solid var(--line);border-radius:99px;padding:8px 16px;font-size:14px;font-weight:600;color:var(--ink);cursor:pointer}
+
+/* hero — text vľavo, obrázok vpravo */
+.hero{padding:88px 0 92px}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center}
+.hero .pill{margin-bottom:22px}
+.hero h1{margin:0 0 22px}
+.hero .lead{margin:0 0 36px}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
+.hero-img{border-radius:var(--r);overflow:hidden;min-height:380px;display:flex;align-items:center}
+.hero-img img{width:100%;height:auto;object-fit:contain}
+.fade{animation:fadeUp .7s ease both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+
+/* ČÍSLA — sekcia podľa screenshotu */
+.stats-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;margin-top:44px;align-items:stretch;max-width:980px;margin-left:auto;margin-right:auto}
+.stat-col{display:flex;flex-direction:column;gap:18px}
+.stat{background:var(--card);border-radius:var(--r);padding:24px 24px 20px;display:flex;flex-direction:column;justify-content:space-between;min-height:158px;flex:1}
+.stat .n{font-family:var(--serif);font-weight:400;font-size:clamp(40px,4.2vw,52px);line-height:1;color:var(--accent)}
+.stat .l{font-size:14.5px;color:var(--ink);margin-top:10px;line-height:1.5}
+.stat-photo{border-radius:var(--r);overflow:hidden;min-height:100%}
+.stat-photo img{width:100%;height:100%;object-fit:cover}
+
+/* karty služieb */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:52px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:32px 30px}
+.soft .card{border:none}
+.card h3{font-size:21px;margin:18px 0 10px}
+.card p{font-size:15.5px;color:var(--muted)}
+.card .glyph{width:44px;height:44px;background:#EAF0F4;border-radius:12px;display:flex;align-items:center;justify-content:center}
+.card .glyph svg{width:24px;height:24px}
+.tags{margin-top:48px;text-align:center}
+.tags p{font-size:15px;color:var(--muted);margin-bottom:16px}
+.tags ul{list-style:none;display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.tags li{font-size:14px;font-weight:500;color:var(--ink);border-radius:99px;padding:8px 18px;background:#EAF0F4}
+
+/* postup */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:52px}
+.step{background:var(--card);border-radius:var(--r);padding:30px 28px}
+.step .num{font-family:var(--serif);font-size:17px;color:var(--accent-deep)}
+.step h3{font-size:19.5px;margin:10px 0 8px}
+.step p{font-size:15px;color:var(--muted)}
+
+/* oprávnenia */
+.creds-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:52px;text-align:left}
+.cred{background:var(--card);border-radius:var(--r);padding:24px 24px 20px}
+.cred .glyph{width:40px;height:40px;background:#EAF0F4;border-radius:10px;display:flex;align-items:center;justify-content:center}
+.cred .glyph svg{width:20px;height:20px}
+.cred h3{font-size:18px;margin:14px 0 8px}
+.cred p{font-size:14.5px;color:var(--muted)}
+
+/* cena — tmavý pás */
+.dark .cta-row{margin-top:34px}
+
+/* o mne */
+.about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:64px;align-items:start;margin-top:52px}
+.about-grid img{border-radius:var(--r)}
+.about p{margin-bottom:16px;color:var(--muted)}
+.about h3{font-size:21px;margin:32px 0 14px}
+.plist{list-style:none}
+.plist li{padding:12px 0 12px 30px;border-bottom:1px solid var(--line);font-size:15.5px;position:relative}
+.plist li::before{content:"";position:absolute;left:2px;top:20px;width:15px;height:8px;background:no-repeat center/contain url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 7'%3E%3Cpath d='M1 6 L7 1 L13 6' stroke='%234E93B4' stroke-width='1.8' fill='none' stroke-linecap='round'/%3E%3C/svg%3E")}
+.plist b{font-weight:600}
+
+
+/* motto */
+.motto blockquote{font-family:var(--serif);font-weight:400;font-size:clamp(24px,3.4vw,34px);line-height:1.4;max-width:820px;margin:24px auto 0}
+.motto blockquote em{font-style:normal;color:var(--accent-light)}
+.motto cite{display:block;margin-top:24px;font-style:normal;font-family:var(--sans);font-size:14.5px;color:var(--muted-dark)}
+
+/* kontakt */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;margin-top:52px;text-align:left}
+.contact-block>p{color:var(--muted);font-size:15.5px}
+.contact-block .label{font-size:12.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-top:26px}
+.contact-block .label:first-child{margin-top:0}
+.form-label{font-size:12.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin:0 0 12px;text-align:left}
+.contact-block .val{color:var(--muted);font-size:16.5px;line-height:1.65}
+.contact-block .val a{color:var(--muted);text-decoration:none}
+.contact-block .val a:hover{color:var(--accent-deep);text-decoration:underline;text-underline-offset:4px}
+form{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:34px}
+form .field{margin-bottom:18px}
+label{display:block;font-size:14.5px;font-weight:600;margin-bottom:7px}
+input,textarea{width:100%;font-family:var(--sans);font-size:16px;padding:13px 16px;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--ink)}
+input:focus,textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(78,147,180,.15)}
+.gdpr{font-size:13px;color:var(--muted);margin:14px 0 18px}
+.gdpr a{color:var(--muted)}
+
+/* pätička */
+footer{background:var(--dark-2);color:var(--muted-dark);padding:38px 0}
+.foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:14px}
+.foot a{color:var(--muted-dark)}
+.foot-li{display:inline-flex;align-items:center;gap:6px;text-decoration:none;font-weight:500;line-height:1}
+.foot-li:hover{color:#fff}
+
+@media(max-width:940px){
+  .stats-grid{grid-template-columns:1fr 1fr}
+  .stat-photo{grid-column:1/-1;min-height:280px}
+  .cards{grid-template-columns:1fr 1fr}
+  .steps{grid-template-columns:1fr 1fr}
+  .creds-grid{grid-template-columns:1fr}
+  .hero-grid,.about-grid,.contact-grid{grid-template-columns:1fr;gap:44px}
+  .hero-img{min-height:280px}
+  .nav-links{display:none;position:absolute;top:74px;left:0;right:0;background:#fff;border-bottom:1px solid var(--line);flex-direction:column;padding:20px 24px;gap:16px;align-items:flex-start}
+  .nav-links.open{display:flex}
+  .nav-toggle{display:block}
+}
+@media(max-width:600px){
+  .section{padding:68px 0}
+  .hero{padding:72px 0 68px}
+  .cards,.steps,.stats-grid,.creds-grid{grid-template-columns:1fr}
+  .stat{min-height:170px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#uvod" aria-label="MG znalectvo — domov">
+      <svg viewBox="0 0 140 150" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M10 46 L70 8 L130 46" stroke="#1F3F5E" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M18 60 L70 27 L122 60 L122 142 L18 142 Z" stroke="#1F3F5E" stroke-width="3.5" fill="none" stroke-linejoin="round"/>
+        <text x="70" y="104" text-anchor="middle" font-family="Fraunces,Georgia,serif" font-size="42" font-weight="500" fill="#1F3F5E" letter-spacing="1">MG</text>
+      </svg>
+      <span class="brand-name">Súdny znalec</span>
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="menu" onclick="const m=document.getElementById('menu');const o=m.classList.toggle('open');this.setAttribute('aria-expanded',o)">Menu</button>
+    <ul class="nav-links" id="menu">
+      <li><a href="#sluzby">Služby</a></li>
+      <li><a href="#postup">Postup</a></li>
+      <li><a href="#cena">Cena</a></li>
+      <li><a href="#o-mne">O mne</a></li>
+      <li><a href="#kontakt">Kontakt</a></li>
+      <li><a class="nav-phone" href="tel:+421944428267">+421 944 428 267</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="uvod">
+  <div class="wrap hero-grid fade">
+    <div>
+      <span class="pill">Súdny znalec · Poprad a celé Slovensko</span>
+      <h1>Znalecké posudky nehnuteľností na mieru, <em>ktorým banky veria</em></h1>
+      <p class="lead">Vypracuje Ing. Miroslav Gromada, súdny znalec, autorizovaný stavebný inžinier a projektový manažér s viac ako 40-ročnou praxou v stavebníctve. Vždy kvalitne, odborne a objektívne.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-solid" href="#kontakt">Kontaktujte ma</a>
+        <a class="btn btn-ghost" href="#sluzby">Moje služby</a>
+      </div>
+    </div>
+    <div class="hero-img">
+      <img src="img/hero-ilustracia.svg" alt="Ilustrácia ohodnotenia a obhliadky nehnuteľnosti" fetchpriority="high">
+    </div>
+  </div>
+</section>
+
+<section class="section dark center" id="v-cislach">
+  <div class="wrap">
+    <span class="pill">V číslach</span>
+    <h2>Skúsenosti, ktoré sa <em>dajú zmerať</em></h2>
+    <div class="stats-grid">
+      <div class="stat-col">
+        <div class="stat"><span class="n">40+</span><span class="l">rokov praxe v stavebníckom sektore naprieč viacerými profesiami</span></div>
+        <div class="stat"><span class="n">20+</span><span class="l">rokov súdnoznaleckej činnosti a v odbore ohodnocovania nehnuteľností</span></div>
+      </div>
+      <div class="stat-col">
+        <div class="stat"><span class="n">100&nbsp;%</span><span class="l">odborných posudkov akceptovaných bankami vždy bez výhrad</span></div>
+        <div class="stat"><span class="n">0</span><span class="l">klientskych reklamácií za celé dlhoročné pôsobenie v znaleckej praxi</span></div>
+      </div>
+      <div class="stat-photo">
+        <img src="img/cisla-ilustracia.svg" alt="Ilustrácia lupy s cenovkou, ocenenie hodnoty nehnuteľnosti" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section center" id="sluzby">
+  <div class="wrap">
+    <span class="pill">Portfólio služieb</span>
+    <h2>Ponúkam širokú škálu <em>znaleckých posudkov</em></h2>
+    <p class="lead" style="max-width:820px;text-wrap:balance">Pre rôzne fyzické aj právnické osoby stanovujem všeobecnú hodnotu bytov, bytových domov, nehnuteľností a stavieb, pozemkov, ako aj hodnotu nájmu či vecných bremien. K vyhotoveniu posudkov pristupujem vždy zodpovedne a profesionálne z pozície certifikovaného znalca. Stačí si vybrať oblasť Vášho záujmu:</p>
+    <div class="cards" style="text-align:left">
+      <div class="card">
+        <div class="glyph"><svg viewBox="0 0 30 30" aria-hidden="true"><path d="M4 14 L15 5 L26 14 M7 13 V25 H23 V13" stroke="#2E6E8E" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3>Rodinné domy a byty</h3>
+        <p>Posudky pre rodinné domy, bytové domy, byty a nebytové priestory.</p>
+      </div>
+      <div class="card">
+        <div class="glyph"><svg viewBox="0 0 30 30" aria-hidden="true"><path d="M4 25 L4 8 L14 12 L14 25 M14 16 L26 11 V25 M4 25 H26" stroke="#2E6E8E" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3>Pozemky</h3>
+        <p>Stanovenie hodnoty stavebných či poľnohospodárskych pozemkov.</p>
+      </div>
+      <div class="card">
+        <div class="glyph"><svg viewBox="0 0 30 30" aria-hidden="true"><path d="M4 25 L11 10 L16 19 L20 13 L26 25 Z" stroke="#2E6E8E" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3>Rekreačné objekty</h3>
+        <p>Chaty, chalupy a rekreačné zariadenia vrátane objektov v horských oblastiach.</p>
+      </div>
+      <div class="card">
+        <div class="glyph"><svg viewBox="0 0 30 30" aria-hidden="true"><path d="M5 25 V7 H17 V25 M21 25 V13 H25 V25 M3 25 H27 M9 11 H13 M9 15 H13 M9 19 H13" stroke="#2E6E8E" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3>Komerčné a výrobné stavby</h3>
+        <p>Administratívne budovy, výrobné haly, skladovacie prevádzky, stavby pre energetiku, hotely, zdravotnícke či kultúrne zariadenia a ďalšie.</p>
+      </div>
+      <div class="card">
+        <div class="glyph"><svg viewBox="0 0 30 30" aria-hidden="true"><path d="M5 15 H25 M9 15 V22 M21 15 V22 M15 15 V8 M11 8 H19" stroke="#2E6E8E" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3>Vecné bremená a nájom</h3>
+        <p>Ocenenie ťarchy na nehnuteľnosti, napríklad práva prechodu cez pozemok či uloženia inžinierskych sietí. Stanovenie obvyklej výšky nájmu.</p>
+      </div>
+      <div class="card">
+        <div class="glyph"><svg viewBox="0 0 30 30" aria-hidden="true"><path d="M7 4 H19 L24 9 V26 H7 Z M19 4 V9 H24 M11 15 L14 18 L20 12" stroke="#2E6E8E" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3>Odborné posúdenia</h3>
+        <p>Odborné posúdenia technického stavu stavieb aj mimo režimu znaleckého posudku. Posudok ako podpora pre obchodné rozhodnutia.</p>
+      </div>
+    </div>
+    <div class="tags">
+      <p style="max-width:820px;margin-left:auto;margin-right:auto;text-wrap:balance">V znaleckej praxi sa stretávam aj s posudkami pre účely finančného či daňového úradu alebo do procesu dedičského konania. Posudky vyhotovujem najčastejšie pre nasledujúce účely:</p>
+      <ul>
+        <li>hypotekárny úver</li><li>kúpa a predaj</li><li>dedičské konanie</li><li>podielové spoluvlastníctvo</li><li>zápis stavby do katastra</li><li>exekúcie</li><li>prechod vlastníctva</li><li>darovanie</li><li>finančné účely</li><li>daňové účely</li>
+      </ul>
+      <div style="margin-top:36px"><a class="btn btn-solid" href="#kontakt">Kontaktujte ma</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="section soft center" id="postup">
+  <div class="wrap">
+    <span class="pill">Ako to prebieha</span>
+    <h2>Štyri kroky <em>k odbornému posudku</em></h2>
+    <div class="steps" style="text-align:left">
+      <div class="step"><span class="num">Krok 1</span><h3>Prvý kontakt a konzultácia</h3><p>Zavolajte mi alebo napíšte. Preberieme účel posudku a potrebné podklady, ako list vlastníctva, projektovú dokumentáciu či kolaudačné rozhodnutie.</p></div>
+      <div class="step"><span class="num">Krok 2</span><h3>Fyzická obhliadka nehnuteľnosti</h3><p>Dohodneme si termín. Na mieste spracujem technický popis, zameranie skutočného stavu a podchytím detailnú fotodokumentáciu.</p></div>
+      <div class="step"><span class="num">Krok 3</span><h3>Vypracovanie Vašej objednávky</h3><p>Na základe podkladov a obhliadky vypracujem posudok v dohodnutom termíne a v súlade s platnou legislatívou. Všetko kvalitne, odborne a objektívne.</p></div>
+      <div class="step"><span class="num">Krok 4</span><h3>Finálne odovzdanie dokumentu</h3><p>Posudok autorizujem kvalifikovaným elektronickým podpisom a zasielam elektronicky. Na vyžiadanie je možné tlačené vyhotovenie.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section dark center" id="cena">
+  <div class="wrap">
+    <span class="pill">Cena</span>
+    <h2>Cena <em>dohodou</em>, bez prekvapení</h2>
+    <p class="lead" style="max-width:820px;text-wrap:balance">Výsledná cena závisí od typu a veľkosti nehnuteľnosti, regiónu, účelu posudku, dostupnosti podkladov, ako aj pracnosti posudku a časovej náročnosti jeho vyhotovenia. K výslednej kalkulácii sa viaže znalečné podľa vyhlášky MS SR č. 491/2004 Z. z., avšak v praxi sa najčastejšie dohodneme na zmluvnej odmene podľa zákona č. 382/2004 Z. z. Pre ďalšie informácie a orientačný návrh ceny ma neváhajte kontaktovať ešte dnes.</p>
+    <div class="cta-row"><a class="btn btn-solid" href="#kontakt">Kontaktujte ma</a></div>
+  </div>
+</section>
+
+<section class="section" id="o-mne">
+  <div class="wrap">
+    <div class="center">
+      <span class="pill">O mne</span>
+      <h2>Ing. <em>Miroslav</em> Gromada</h2>
+    </div>
+    <div class="about-grid">
+      <img src="img/miroslav-gromada.jpg" alt="Ing. Miroslav Gromada na stavbe v ochrannej prilbe" width="880" height="660" loading="lazy">
+      <div class="about">
+        <p>Po úspešnom ukončení vysokoškolského štúdia na Stavebnej fakulte SVŠT v Bratislave, odbor Pozemné stavby, v roku 1980 som nasledujúcich 20+ rokov pôsobil v projekcii. Istú dobu som sa venoval projektovému manažmentu, až do roku 2006, keď som konečne zakotvil vo vodách súdnoznaleckej činnosti. V rokoch 2006 – 2018 som navyše pôsobil ako certifikovaný projektový manažér IPMA/SPPR v stavebnej oblasti. Za tie dlhé roky som sa podieľal na riadení mnohých väčších projektov doma na Slovensku aj v zahraničí.</p>
+        <p>Počas svojej dlhej kariéry som si hrdo vybudoval cestu od radového projektanta až po riaditeľa a konateľa vlastnej projekčnej spoločnosti. Medzi moje významné projekty na Slovensku patria modernizácia a nová výstavba kompresorových staníc na prepravu zemného plynu vo Veľkých Kapušanoch, v Jabloňove nad Turňou, vo Veľkých Zlievcach, v Ivanke pri Nitre a v Plaveckom Petre, realizácia atómových elektrární v Mochovciach a v Temelíne (ČR) či výstavba vybraných objektov automobilky Jaguar Land Rover v Nitre. Zo zahraničných skúseností sú mi najcennejšie výstavba kompresorovej stanice plynu v Turkmenistane, rekonštrukcia 1 200 km plynovodu s kompresorovými stanicami v Saudskej Arábii, realizácia 3. bloku atómovej elektrárne Olkiluoto vo Fínsku a realizácia hotela Radisson v meste Alušta na Kryme.</p>
+        <p>Ako aktívny dôchodca sa v súčasnosti popri rekonštrukcii domu a záhradkárstve venujem svojej rodine, zatiaľ čo pracovne sa vyžívam naplno v znaleckej činnosti a príprave posudkov pre širokú škálu klientov.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section soft center" id="opravnenia">
+  <div class="wrap">
+    <span class="pill">Kvalifikácia</span>
+    <h2>Odborné <em>oprávnenia</em></h2>
+    <div class="creds-grid">
+      <div class="cred">
+        <div class="glyph"><svg viewBox="0 0 30 30" aria-hidden="true"><path d="M15 3 L25 7 V14 C25 20 21 24.5 15 27 C9 24.5 5 20 5 14 V7 Z M11 14.5 L14 17.5 L20 11.5" stroke="#2E6E8E" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3>Súdny znalec</h3>
+        <p>Riadne evidovaný v zozname znalcov Ministerstva spravodlivosti SR, odbor Stavebníctvo: odhad hodnoty nehnuteľností, pod číslom 914088.</p>
+      </div>
+      <div class="cred">
+        <div class="glyph"><svg viewBox="0 0 30 30" aria-hidden="true"><path d="M4.5 21 H25.5 M7 21 C7 14 10.5 9 15 9 C19.5 9 23 14 23 21 M15 9 V5.5 M10.5 12 V17 M19.5 12 V17" stroke="#2E6E8E" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3>Autorizovaný stavebný inžinier</h3>
+        <p>Autorizácia SKSI na komplexné architektonické a inžinierske služby a súvisiace technické poradenstvo.</p>
+      </div>
+      <div class="cred">
+        <div class="glyph"><svg viewBox="0 0 30 30" aria-hidden="true"><path d="M15 4 A7 7 0 1 0 15 18 A7 7 0 1 0 15 4 M11 17 L9 27 L15 23.5 L21 27 L19 17" stroke="#2E6E8E" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3>Projektový manažér IPMA</h3>
+        <p>Certifikovaný manažér komplexných projektov, IPMA stupeň B (2006 – 2018).</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section dark center motto">
+  <div class="wrap">
+    <span class="pill">Osobné motto</span>
+    <blockquote>„Štyridsať rokov v stavebníctve ma naučilo, že za každou stavbou treba vidieť <em>ľudí, ktorým má slúžiť</em>."</blockquote>
+    <cite>— Ing. Miroslav Gromada</cite>
+  </div>
+</section>
+
+<section class="section center" id="kontakt">
+  <div class="wrap">
+    <span class="pill">Kontakt</span>
+    <h2>Kontaktné <em>informácie</em></h2>
+    <p class="lead">Potrebujete vypracovať kvalitný znalecký posudok? Neváhajte sa na mňa obrátiť e-mailom alebo telefonicky, ideálne v pracovných dňoch v čase medzi 9.00 – 18.00. Pre Váš akýkoľvek dotaz využite kontaktný formulár.</p>
+    <div class="contact-grid">
+      <div class="contact-block">
+        <p class="label">Mobilný telefón</p>
+        <p class="val"><a href="tel:+421944428267">+421 944 428 267</a></p>
+        <p class="label">E-mail</p>
+        <p class="val"><a href="mailto:gromada.miroslav@gmail.com">gromada.miroslav@gmail.com</a></p>
+        <p class="label">Fakturačné údaje</p>
+        <p class="val">Ing. Miroslav Gromada<br>Vodárenská 1941/71<br>058 01 Poprad-Veľká<br>IČO: 37882953<br>DIČ: 1022657724</p>
+        <p class="label">Pôsobnosť</p>
+        <p class="val">Poprad a celé Slovensko</p>
+      </div>
+      <div>
+        <p class="label form-label">Formulár</p>
+        <form action="https://formspree.io/f/xnjevgry" method="POST">
+        <div class="field"><label for="meno">Meno a priezvisko</label><input id="meno" name="meno" type="text" autocomplete="name" required></div>
+        <div class="field"><label for="tel">Telefón</label><input id="tel" name="telefon" type="tel" autocomplete="tel" required></div>
+        <div class="field"><label for="sprava">S čím potrebujete pomôcť?</label><textarea id="sprava" name="sprava" rows="4" placeholder="Napr. posudok rodinného domu pre hypotéku, okres Poprad" required></textarea></div>
+        <p class="gdpr">Odoslaním formulára súhlasíte so spracovaním osobných údajov za účelom vybavenia dopytu. <a href="ochrana-osobnych-udajov.html">Zásady ochrany osobných údajov</a></p>
+        <button class="btn btn-solid" type="submit">Odoslať ihneď</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>© 2026 Ing. Miroslav Gromada, súdny znalec</span>
+    <a class="foot-li" href="https://www.linkedin.com/in/miroslav-gromada-ing-66004368/" aria-label="LinkedIn profil Miroslava Gromadu">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="flex:none;position:relative;top:.5px"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.24 8.31h4.52V23H.24V8.31zM8.34 8.31h4.33v2h.06c.6-1.14 2.08-2.34 4.28-2.34 4.58 0 5.42 3.01 5.42 6.92V23h-4.51v-7.12c0-1.7-.03-3.88-2.37-3.88-2.37 0-2.73 1.85-2.73 3.76V23H8.34V8.31z"/></svg>
+      LinkedIn
+    </a>
+  </div>
+</footer>
+
+</body>
+</html>
